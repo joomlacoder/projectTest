@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, ImageBackground, Image, View, useWindowDimensions} from 'react-native';
+import { StyleSheet, Text, ImageBackground, Alert, Image, View, useWindowDimensions} from 'react-native';
 import styled from 'styled-components/native'
 import React, { useState } from 'react';
 import Draggable from 'react-native-draggable';
@@ -11,21 +11,21 @@ export default function App(){
       <ImageBackground source={require('./assets/fon.png')} resizeMode="stretch" style={styles.image}/>
       <StatusBar style="auto" />
       <View style={styles.footer}>
-        <Draggable style={styles.draggable} onShortPressRelease={() => alert('Огонь')} onRelease={(e, wasDragging) =>
-                                                                                                 console.log(`was dragging is ${wasDragging} ${e.pageX}`)
+        <Draggable style={styles.draggable} onShortPressRelease={() => alert('Bahhhxx')} onLongPress={() => Alert.alert('Предмет','Огонь')} onRelease={(e, wasDragging) =>
+                                                                                                 console.log(`was dragging is ${wasDragging} ${Object.keys(e)}`)
                                                                                                }>
-            <View style={styles.item}>
+            <View style={styles.item} >
                 <Image source={require('./assets/og.png')} resizeMode="stretch" style={styles.imgIt}/>
                 <Text style={styles.text}>Value</Text>
             </View>
         </Draggable>
-        <Draggable style={styles.draggable} x={useWindowDimensions().width/2-55}>
+        <Draggable style={styles.draggable} x={useWindowDimensions().width/2-55} onShortPressRelease={() => alert('$$$')}>
             <View style={styles.item}>
                 <Image source={require('./assets/gr.png')} resizeMode="stretch" style={styles.imgIt}/>
                 <Text style={styles.text}>Value</Text>
             </View>
         </Draggable>
-        <Draggable style={styles.draggable} x={useWindowDimensions().width-120}>
+        <Draggable style={styles.draggable} x={useWindowDimensions().width-120} onShortPressRelease={() => alert('Win')}>
             <View style={styles.item}>
                 <Image source={require('./assets/taz.png')} resizeMode="stretch" style={styles.imgIt}/>
                 <Text style={styles.text}>Value</Text>
